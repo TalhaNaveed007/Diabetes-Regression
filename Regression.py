@@ -78,33 +78,3 @@ prediction = diabetesLoadedModel.predict(sampleDataFeatures)
 print('Probability:', predictionProbability)
 print('prediction:', prediction)
 
-"""
-#using Linear Regression
-diabetesCheck = LinearRegression()
-diabetesCheck.fit(trainData, trainLabel)
-
-accuracy = diabetesCheck.score(testData, testLabel)
-print("accuracy with linear regression = ", accuracy * 100, "%")
-
-#saving the model
-joblib.dump([diabetesCheck, means, stds], 'diabeteseModelLinear.pkl')
-
-#using saved  Linear model
-diabetesLoadedModel, means, stds = joblib.load('diabeteseModelLinear.pkl')
-accuracyModel = diabetesLoadedModel.score(testData, testLabel)
-print("accuracy = ",accuracyModel * 100,"%")
-
-print(dfCheck.head())
-
-
-sampleData = dfCheck[:1]# prepare sample
-sampleDataFeatures = np.asarray(sampleData.drop('Outcome',1))
-sampleDataFeatures = (sampleDataFeatures - means)/stds# predict
-predictionProbability = diabetesLoadedModel.predict(sampleDataFeatures)
-
-
-prediction = diabetesLoadedModel.predict(sampleDataFeatures)
-print('Probability:', predictionProbability)
-print('prediction:', prediction)
-
-"""
